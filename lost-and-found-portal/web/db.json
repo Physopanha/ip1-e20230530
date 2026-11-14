@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Black Wallet",
       "description": "Lost near the library entrance.",
-      "status": "OPEN",
+      "status": "NOT FOUND",
       "categoryId": "1",
       "requesterId": "e20230530"
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "title": "Moto Key",
       "description": "Found in Building A.",
-      "status": "RESOLVED",
+      "status": "FOUND",
       "categoryId": "2",
       "requesterId": "e12345678"
     }

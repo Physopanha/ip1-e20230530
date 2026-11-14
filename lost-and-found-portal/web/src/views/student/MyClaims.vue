@@ -109,7 +109,9 @@ const filteredClaims = computed(() => {
       <main class="flex-grow p-6 overflow-y-auto flex flex-col">
         <!-- Action Bar -->
         <div class="mb-6">
-          <button class="bg-white border border-gray-300 shadow-sm text-gray-700 font-semibold py-2 px-6 rounded-md hover:bg-gray-50 transition-colors">
+          <button 
+            @click="$router.push('/report')"
+            class="cursor-pointer bg-white border border-gray-300 shadow-sm text-gray-700 font-semibold py-2 px-6 rounded-md hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 hover:shadow-md transition-all duration-200">
             Post
           </button>
         </div>
@@ -123,7 +125,7 @@ const filteredClaims = computed(() => {
         <div v-else-if="claimStore.isLoading" class="flex-grow flex items-center justify-center">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
         </div>
-
+        
         <!-- M1 Requirement: Empty State -->
         <div v-else-if="filteredClaims.length === 0" class="flex-grow flex flex-col items-center justify-center text-gray-500">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,11 +163,11 @@ const filteredClaims = computed(() => {
 
         <!-- Pagination Footer -->
         <div class="mt-auto flex justify-between items-center pt-6 border-t border-gray-200 text-gray-600 font-medium">
-          <button class="px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 shadow-sm disabled:opacity-50">
+          <button class="cursor-pointer disabled:cursor-not-allowed px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 hover:shadow-md transition-all duration-200 disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-gray-600 disabled:hover:border-gray-300 disabled:hover:shadow-sm">
             &lt; Previous
           </button>
           <span>1/2</span>
-          <button class="px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 shadow-sm">
+          <button class="cursor-pointer px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 hover:shadow-md transition-all duration-200">
             Next &gt;
           </button>
         </div>
