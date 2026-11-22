@@ -37,7 +37,7 @@ const filteredClaims = computed(() => {
       <!-- Logo -->
       <div class="flex items-center gap-3 w-1/4">
         <img src="@/assets/Logo.png" alt="ITC Logo" class="w-11 h-11 rounded-full bg-white object-contain shadow-sm" />
-        <h1 class="text-xl font-bold tracking-wider">I.T.C.</h1>
+        <h1 class="text-xl font-bold tracking-wider">ITC</h1>
       </div>
 
       <!-- Center Search Bar -->

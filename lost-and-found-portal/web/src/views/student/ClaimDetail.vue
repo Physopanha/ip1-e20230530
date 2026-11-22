@@ -26,7 +26,7 @@ const isOwner = computed(() => claim.value?.requesterId === currentUserId)
     <header class="bg-blue-900 text-white p-4 flex justify-between items-center shadow-md shrink-0">
       <div class="flex items-center gap-3 cursor-pointer" @click="router.push('/claims')">
         <img src="@/assets/Logo.png" alt="ITC Logo" class="w-11 h-11 rounded-full bg-white object-contain shadow-sm" />
-        <h1 class="text-xl font-bold tracking-wider">I.T.C.</h1>
+        <h1 class="text-xl font-bold tracking-wider">ITC</h1>
       </div>
       <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900 shadow-sm cursor-pointer hover:bg-blue-100 hover:scale-105 hover:shadow-md transition-all duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

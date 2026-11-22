@@ -29,7 +29,7 @@ const handleLogin = async () => {
   }
   
   const firstLetter = studentId.value.toLowerCase().charAt(0)
-  if (!['e', 'i', 't'].includes(firstLetter)) {
+  if (studentId.value.toLowerCase() !== 'admin' && !['e', 'i', 't'].includes(firstLetter)) {
     errorMessage.value = 'Enter the correct Username.'
     return
   }

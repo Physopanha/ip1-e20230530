@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useClaimStore } from '@/stores/claims'
 
 const router = useRouter()
+const claimStore = useClaimStore()
 
-// Form state matching the wireframe
 const itemTitle = ref('')
 const category = ref('')
 const description = ref('')
@@ -12,10 +13,9 @@ const reportType = ref('') // 'lost' or 'found'
 const errorMessage = ref('')
 const isSubmitting = ref(false)
 
-// Handle form submission and M1 client-side validation
 const handleSubmit = async () => {
   errorMessage.value = ''
-  
+
   if (!itemTitle.value.trim()) {
     errorMessage.value = 'Item Title is required.'
     return
@@ -30,12 +30,22 @@ const handleSubmit = async () => {
   }
 
   isSubmitting.value = true
-  
-  // Simulate API delay for M1 mock
-  setTimeout(() => {
+
+  try {
+    await claimStore.createClaim({
+      title: itemTitle.value.trim(),
+      description: description.value.trim(),
+      status: reportType.value === 'found' ? 'FOUND' : 'NOT FOUND',
+      requesterId: 'e20230530',
+    } as any)
+
+    // Goes back to /claims for students, or /admin/inbox for staff
+    router.back()
+  } catch (err) {
+    errorMessage.value = 'Failed to submit report. Make sure json-server is running.'
+  } finally {
     isSubmitting.value = false
-    router.push('/claims')
-  }, 600)
+  }
 }
 </script>
 
@@ -45,7 +55,7 @@ const handleSubmit = async () => {
     <header class="bg-blue-900 text-white p-4 flex justify-between items-center shadow-md shrink-0">
       <div class="flex items-center gap-3 cursor-pointer" @click="router.push('/claims')">
         <img src="@/assets/Logo.png" alt="ITC Logo" class="w-11 h-11 rounded-full bg-white object-contain shadow-sm" />
-        <h1 class="text-xl font-bold tracking-wider">I.T.C.</h1>
+        <h1 class="text-xl font-bold tracking-wider">ITC</h1>
       </div>
       <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900 shadow-sm cursor-pointer hover:bg-blue-100 hover:scale-105 transition-all duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -4,21 +4,29 @@
       "id": "1",
       "title": "Black Wallet",
       "description": "Lost near the library entrance.",
-      "status": "NOT FOUND",
+      "status": "FOUND",
       "categoryId": "1",
       "requesterId": "e20230530"
     },
     {
-      "id": "2",
-      "title": "Moto Key",
-      "description": "Found in Building A.",
-      "status": "FOUND",
-      "categoryId": "2",
-      "requesterId": "e12345678"
+      "title": "Phone",
+      "description": "Under the chair",
+      "status": "NOT FOUND",
+      "requesterId": "e20230530",
+      "id": "6KPSjbYcxyc"
     }
   ],
   "categories": [
-    { "id": "1", "name": "Personal Items", "isActive": true },
-    { "id": "2", "name": "Electronics", "isActive": true }
-  ]
+    {
+      "id": "1",
+      "name": "Personal Items",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "name": "Electronics",
+      "isActive": true
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
