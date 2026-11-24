@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useClaimStore } from '@/stores/claims'
+import ProfileMenu from '@/components/ProfileMenu.vue'
 
 const router = useRouter()
 const claimStore = useClaimStore()
@@ -45,7 +46,7 @@ const updateStatus = async (claim: any, newStatus: string) => {
     <header class="bg-blue-900 text-white p-4 flex justify-between items-center shadow-md shrink-0">
       <div class="flex items-center gap-3 w-1/4 cursor-pointer" @click="router.push('/admin/inbox')">
         <img src="@/assets/Logo.png" alt="ITC Logo" class="w-11 h-11 rounded-full bg-white object-contain shadow-sm" />
-        <h1 class="text-xl font-bold tracking-wider">ITC</h1>
+        <h1 class="text-xl font-bold tracking-wider">I.T.C.</h1>
       </div>
 
       <!-- Center Search Bar -->
@@ -65,13 +66,9 @@ const updateStatus = async (claim: any, newStatus: string) => {
         </div>
       </div>
 
-      <!-- Staff Profile Icon -->
+      <!-- Staff Profile Dropdown -->
       <div class="w-1/4 flex justify-end">
-        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900 shadow-sm cursor-pointer hover:bg-blue-100 hover:scale-105 hover:shadow-md transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </div>
+        <ProfileMenu />
       </div>
     </header>
 

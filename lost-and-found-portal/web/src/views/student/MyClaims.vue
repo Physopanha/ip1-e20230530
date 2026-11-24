@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { useClaimStore } from '@/stores/claims'
+import ProfileMenu from '@/components/ProfileMenu.vue'
+import router from '@/router'
 
 const claimStore = useClaimStore()
 
@@ -34,13 +36,13 @@ const filteredClaims = computed(() => {
   <div class="min-h-screen bg-gray-50 flex flex-col">
     <!-- Top Navigation Bar -->
     <header class="bg-blue-900 text-white p-4 flex justify-between items-center shadow-md shrink-0">
-      <!-- Logo -->
-      <div class="flex items-center gap-3 w-1/4">
+      <!-- Left: Logo & Title Only -->
+      <div class="flex items-center gap-3 w-1/4 cursor-pointer" @click="router.push('/claims')">
         <img src="@/assets/Logo.png" alt="ITC Logo" class="w-11 h-11 rounded-full bg-white object-contain shadow-sm" />
         <h1 class="text-xl font-bold tracking-wider">ITC</h1>
       </div>
 
-      <!-- Center Search Bar -->
+      <!-- Center: Search Bar -->
       <div class="w-1/2 flex justify-center">
         <div class="relative w-full max-w-lg text-gray-900">
           <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
@@ -48,22 +50,18 @@ const filteredClaims = computed(() => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </span>
-          <input 
+          <input
             v-model="searchQuery"
-            type="text" 
-            placeholder="search" 
+            type="text"
+            placeholder="search"
             class="w-full pl-10 pr-4 py-2 rounded-full bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
       </div>
 
-      <!-- User Profile Icon -->
+      <!-- Right: Single ProfileMenu -->
       <div class="w-1/4 flex justify-end">
-        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900 shadow-sm cursor-pointer hover:bg-blue-100 hover:scale-105 hover:shadow-md transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </div>
+        <ProfileMenu />
       </div>
     </header>
 

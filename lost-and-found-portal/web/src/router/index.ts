@@ -5,6 +5,7 @@ import ClaimDetail from '../views/student/ClaimDetail.vue'
 import ReportItem from '../views/student/ReportItem.vue' // 1. Import the new page
 import Inbox from '../views/staff/Inbox.vue'
 import StaffClaimDetail from '../views/staff/StaffClaimDetail.vue'
+import Profile from '../views/Profile.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,11 @@ const router = createRouter({
       path: '/admin/claims/:id',
       name: 'staff-claim-detail',
       component: StaffClaimDetail
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
     }
   ]
 })
